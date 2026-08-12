@@ -10,11 +10,6 @@ import Blog from './pages/Blog';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   const renderPage = () => {
     switch (currentPage) {
@@ -36,13 +31,11 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
-      <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen">
+      <div className="bg-white text-gray-900">
         <Navbar 
           currentPage={currentPage} 
           setCurrentPage={setCurrentPage}
-          darkMode={darkMode}
-          toggleDarkMode={toggleDarkMode}
         />
         <main>
           {renderPage()}
